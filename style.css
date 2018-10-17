@@ -1,0 +1,47 @@
+body{
+    background: url(images/wintertime-2896572_1920.jpg)center center fixed;
+    background-size: cover;
+    color: black;
+    }
+
+#header {
+    font-size: 7vw;
+    text-align: center;
+    color: #ef9e23;
+}
+/*lap*/
+#lap {
+    text-align: right;
+    font-size: 4vw;
+}
+
+#time {
+    text-align: center;
+    font-size: 10vw;
+  
+}
+/*control*/
+#controlsContainer {
+    margin-bottom: 100px;
+}
+
+.control {
+    color: white;
+    background-color: #d7A04e;
+    height: 10vw;
+    width: 10vw;
+        border-radius: 100%;
+    text-align: center;
+    padding:20% 0;
+    font-size: 2.5vw;
+    cursor: pointer;
+}
+.control:active{
+    background-color: white;
+    color: #d7A04e;
+}
+/*lapcontainer*/
+#laps {
+    max-height: 270px;
+    overflow-y: scroll;
+}
