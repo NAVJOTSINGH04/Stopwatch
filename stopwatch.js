@@ -12,7 +12,7 @@ $(function(){
   // on load show startand show button
   hideshowButtons("#StartButton","#lapButton");
     
-    
+    //start button
     $("#StartButton").click(function(){
         //game is on
         mode = 1;
@@ -21,10 +21,45 @@ $(function(){
         //start counter
         startAction();
     });
-  
-  
-  
-  
+  //stop button
+  $("#StopButton").click(function(){
+   
+      //show resume and reset button
+      hideshowButtons("#ResumeButton","#ResetButton");
+      //stop counter
+      clearInterval(actions);
+      
+  });
+  //resume button
+    $("#ResumeButton").click(function(){
+   
+      //show stop and lap button
+      hideshowButtons("#StopButton","#lapButton");
+      //start counter
+          startAction();
+  });
+    //reset button
+   $("#ResetButton").click(function(){
+     //reload page
+     location.reload();
+  });
+    //lap button
+     $("#lapButton").click(function(){
+            if(mode){
+                //stop action
+                clearInterval(actions);
+                //reset lap
+                lapCounter = 0;
+                //print lap
+                addLap();
+                //start action
+                startAction();
+            }
+      //show stop and lap button
+      hideshowButtons("#StopButton","#lapButton");
+       //reload page
+     location.reload();
+  });
 
   //functions
     //show and hide two functions
@@ -82,4 +117,10 @@ $(function(){
         }
             
         }
+  // add lap function:and print details
+    function addlap(){
+        var mylapDetails='<div>lap</div>';
+        $(mylapDetails).appendTo("#laps");
+        
+    }
     });
