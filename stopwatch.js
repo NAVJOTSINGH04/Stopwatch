@@ -54,11 +54,8 @@ $(function(){
                 addLap();
                 //start action
                 startAction();
-            }
-      //show stop and lap button
-      hideshowButtons("#StopButton","#lapButton");
-       //reload page
-     location.reload();
+            };
+     
   });
 
   //functions
@@ -73,11 +70,11 @@ $(function(){
         actions =setInterval(function(){
             timeCounter++;
             //limit timecounter
-            if(timeCounter = 100*60*100){
+            if(timeCounter == 100*60*100){
                 timeCounter =0;
             }
             lapCounter++;
-             if(lapCounter = 100*60*100){
+             if(lapCounter == 100*60*100){
                 lapCounter =0;
             }
             updateTime();
@@ -118,9 +115,20 @@ $(function(){
             
         }
   // add lap function:and print details
-    function addlap(){
-        var mylapDetails='<div>lap</div>';
-        $(mylapDetails).appendTo("#laps");
+    function addLap(){
+        lapNumber++;
+        var mylapDetails=
+            '<div class="lap">'+
+            '<div class="laptimetitle">'+
+            'lap'+ lapNumber +
+            '</div>'+
+            '<div class="laptime">'+
+            '<span>'+ format(lapMinutes) + '</span>'+ 
+            ':<span>'+ format(lapSeconds) + '</span>'+ 
+            ':<span>'+ format(lapCentiseconds) + '</span>'+ 
+            '</div>'+
+            '</div>';
+        $(mylapDetails).prependTo("#laps");
         
     }
     });
